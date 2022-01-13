@@ -11,7 +11,7 @@
 
     <a href="{{route('comics.create')}} ">Aggiungi fumetto</a>
 
-    @foreach ($comics as $comic)
+    {{-- @foreach ($comics as $comic)
         <div style="border: 1px solid black">
             <h5>
                 Titolo: {{$comic['title'] }}
@@ -24,21 +24,26 @@
             </h6>
         </div>
     @endforeach
-    @dump($comics)
+    @dump($comics) --}}
 
     @dump($errors)
 
     @foreach ($comics_db as $comic)
     <div style="border: 1px solid black">
-        <h5>
-            Titolo: {{$comic['title'] }}
+        <h5>Titolo: 
+            <a href="{{route('comics.show', $comic->id)}} ">{{$comic['title'] }}</a>
         </h5>
-        <p>
+
+        <a href="{{route('comics.edit', $comic->id)}} ">Modifica fumetto</a>
+
+
+
+        {{-- <p>
             {{$comic['description']}}
         </p>
         <h6>
             Prezzo: {{$comic['price']}} $
-        </h6>
+        </h6> --}}
     </div>
     @endforeach
 </body>
